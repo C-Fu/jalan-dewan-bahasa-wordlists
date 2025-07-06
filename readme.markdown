@@ -34,7 +34,6 @@ successors redesigned companions intrusion alternatives cleaned
 rationalism coupons cosmos clarification translation blaming
 ```
 
-
 ## Orchard Street Medium List
 
 The [Orchard Street Medium List](lists/orchard-street-medium.txt) has 8,192 (2<sup>13</sup>) words. This length is optimized for binary computers and their random number generators. It gives a nice round 13.00 bits of entropy per word, which makes entropy calculations a bit easier for us humans.
@@ -142,6 +141,9 @@ mute mecca drugs rent turn den
 ```
 
 For more information on these short lists and their specific use-cases, see [this GitHub repo](https://github.com/sts10/remote-words) and/or [this blog post](https://sts10.github.io/2022/10/24/a-good-netflix-password.html).
+
+## Online passphrase generator that uses some of these wordlists.
+You can use [StrongPhrase.net](https://strongphrase.net/#/more) to generate passphrases from the Long and QWERTY lists. [Source code available on GitLab](https://gitlab.com/strongphrase/StrongPhrase.net).
 
 ## FAQ
 
