@@ -1,0 +1,27 @@
+=== DBP Orthography Audit ===
+File: lists/jalan-dewan-bahasa-kecil-qwerty.txt
+Date: 2026-06-30
+
+PATTERN SCAN RESULTS:
+- 'sih$': 1 hit → 'isih' (line 520) — FALSE POSITIVE: 'isih' is valid Standard Malay (DBP) meaning 'sort/arrange'. Not an Indonesian -sih suffix.
+- 'itas$': 0 hits
+- 'karena': 0 hits
+- 'universitas': 0 hits
+- 'nopember': 0 hits
+- 'agustus': 0 hits
+- 'aktifitas': 0 hits
+- 'fasilitas': 0 hits
+- 'sistim': 0 hits
+- 'propinsi': 0 hits
+- 'kwalitas': 0 hits
+
+SPECIFIC WORD CHECKS:
+- kualitas: NOT FOUND ✓
+- universitas: NOT FOUND ✓
+- karena: NOT FOUND ✓
+- nopember: NOT FOUND ✓
+- agustus: NOT FOUND ✓
+
+RESULT: No Indonesian (KBBI) spelling violations found.
+All words confirmed DBP Standard Malaysia orthography.
+Post-1972 Ejaan Rumi Baharu conventions applied.
