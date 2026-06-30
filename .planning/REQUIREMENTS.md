@@ -35,6 +35,17 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [ ] **BESA-01**: `lists/jalan-dewan-bahasa-besar.txt` — 17,576 Malay words, ~14.1 bits/word, uniquely decodable
 
+### SQLite Database (SQLI)
+
+- [ ] **SQLI-01**: `db/jalan-dewan-bahasa-kecil-alpha.db` — SQLite database with `words(roll, word)` table for alpha list
+- [ ] **SQLI-02**: `db/jalan-dewan-bahasa-kecil-alpha-dadu.db` — SQLite database with `words(roll, word)` table for alpha dice variant
+- [ ] **SQLI-03**: `db/jalan-dewan-bahasa-kecil-qwerty.db` — SQLite database for QWERTY list
+- [ ] **SQLI-04**: `db/jalan-dewan-bahasa-kecil-qwerty-dadu.db` — SQLite database for QWERTY dice variant
+- [ ] **SQLI-05**: `db/jalan-dewan-bahasa-sederhana.db` — SQLite database for medium list
+- [ ] **SQLI-06**: `db/jalan-dewan-bahasa-dadu.db` — SQLite database for diceware list
+- [ ] **SQLI-07**: `db/jalan-dewan-bahasa-dadu-bersih.db` — SQLite database for diceware clean variant
+- [ ] **SQLI-08**: `db/jalan-dewan-bahasa-besar.db` — SQLite database for long list
+
 ### Cross-Cutting (XCUT)
 
 - [ ] **XCUT-01**: Translation deduplication — remove duplicate Malay words resulting from many-to-one English→Malay mappings before pruning
@@ -79,6 +90,14 @@ Deferred to future release. Tracked but not in current roadmap.
 | DADU-01 | Phase 3 | Pending |
 | DADU-02 | Phase 3 | Pending |
 | BESA-01 | Phase 4 | Pending |
+| SQLI-01 | Phase 2 | Pending |
+| SQLI-02 | Phase 2 | Pending |
+| SQLI-03 | Phase 2 | Pending |
+| SQLI-04 | Phase 2 | Pending |
+| SQLI-05 | Phase 3 | Pending |
+| SQLI-06 | Phase 3 | Pending |
+| SQLI-07 | Phase 3 | Pending |
+| SQLI-08 | Phase 4 | Pending |
 | XCUT-01 | Phase 1 | Pending |
 | XCUT-02 | Phase 1 | Pending |
 | XCUT-03 | Phase 2 | Pending |
@@ -88,8 +107,8 @@ Deferred to future release. Tracked but not in current roadmap.
 | XCUT-07 | Phase 4 | Pending |
 
 **Coverage:**
-- v1 requirements: 17 total
-- Mapped to phases: 17
+- v1 requirements: 25 total
+- Mapped to phases: 25
 - Unmapped: 0 ✓
 
 ---

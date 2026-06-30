@@ -46,6 +46,7 @@ Recent decisions affecting current work:
 - Build order: Docs first, then alpha → qwerty → medium → diceware → long (smallest-first de-risking)
 - Malay orthography: DBP Standard Malaysia (not Indonesian/KBBI)
 - Cross-cutting requirements distributed: XCUT-01/02 (dedup/normalize) in Phase 1, XCUT-03/04/05/06 (UD/prune/profanity/DBP) in Phase 2, XCUT-07 (entropy verification) in Phase 4
+- SQLite databases: Each wordlist also published as `db/*.db` alongside `.txt` files — SQLI-01/02/03/04 in Phase 2, SQLI-05/06/07 in Phase 3, SQLI-08 in Phase 4
 
 ### Pending Todos
 
@@ -64,5 +65,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-06-30
-Stopped at: Roadmap creation complete — 4 phases, 17/17 requirements mapped
+Stopped at: Roadmap updated — 4 phases, 25/25 requirements mapped (SQLite databases added)
 Resume file: None

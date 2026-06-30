@@ -44,8 +44,8 @@ See `.planning/STATE.md` for current phase and progress.
 
 ## Requirements
 
-17 v1 requirements across 7 categories. See `.planning/REQUIREMENTS.md` for details.
+25 v1 requirements across 8 categories. See `.planning/REQUIREMENTS.md` for details.
 
 ## Project Summary
 
-Direct translation of Orchard Street Wordlists into Standard Malay (Malaysia). Pipeline: DeepSeek v4 Pro translation → Dedup → Normalize (Tidy) → Schlinkert Pruning (Tidy -K) → Verify (Tidy -AAAA). Output: 7 wordlist files + Malay documentation.
+Direct translation of Orchard Street Wordlists into Standard Malay (Malaysia). Pipeline: DeepSeek v4 Pro translation → Dedup → Normalize (Tidy) → Schlinkert Pruning (Tidy -K) → Verify (Tidy -AAAA). Output: 7 wordlist `.txt` files + 8 SQLite `.db` files (in `db/`) + Malay documentation.
