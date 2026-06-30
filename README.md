@@ -13,6 +13,44 @@ NOTA: Senarai ini disunting dari semasa ke semasa. Jika anda mahukan salinan sta
 
 Setiap senarai perkataan dalam projek ini melalui saluran paip (pipeline) yang sama untuk memastikan kualiti, kebolehnilaian unik, dan kesesuaian untuk penciptaan frasa laluan.
 
+```mermaid
+flowchart TD
+    A["Sumber & Terjemahan"]:::step --> B["Penormalan"]:::step
+    B --> C["Ujian Sardinas–Patterson (Kebolehnilaian Unik)"]:::step
+    C --> D["Pemangkasan Heuristik Schlinkert"]:::step
+    D --> E["Pengesahan & Entropi Sasaran"]:::step
+    E --> F["Senarai Akhir (Boleh Dinahkod Unik)"]:::final
+
+    subgraph S1["Proses Terjemahan"]
+        A1["Senarai Orchard Street Wordlists (Inggeris)"]:::source --> A2["Terjemahan ke Bahasa Melayu (DBP)"]:::process
+        A2 --> A3["Semakan Manual & Deduplikasi"]:::process
+        A3 --> A
+    end
+
+    subgraph S2["Proses Penormalan"]
+        B1["tidy -l -z nfc --locale ms --remove-nonalphabetic"]:::tool --> B
+    end
+
+    subgraph S3["Pemangkasan"]
+        D1["tidy -K -l -z nfc --locale ms"]:::tool --> D
+        D2["Fallback: -P / -S jika perlu"]:::tool --> D
+    end
+
+    subgraph S4["Pengesahan"]
+        E1["tidy -AAAA -z nfc --locale ms"]:::tool --> E
+        E2["Audit ejaan DBP & tapis perkataan lucah"]:::check --> E
+        E3["Kiraan entropi log₂(N)"]:::check --> E
+    end
+
+    classDef step fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef source fill:#bbf,stroke:#333,stroke-width:2px;
+    classDef process fill:#bfb,stroke:#333,stroke-width:2px;
+    classDef tool fill:#ffb,stroke:#333,stroke-width:2px;
+    classDef check fill:#fdd,stroke:#333,stroke-width:2px;
+    classDef final fill:#afa,stroke:#333,stroke-width:3px;
+
+```
+
 ### 1. Sumber dan Terjemahan
 
 Senarai sumber bahasa Inggeris diambil daripada projek [Orchard Street Wordlists](https://github.com/sts10/orchard-street-wordlists), yang mengandungi senarai perkataan bahasa Inggeris yang telah dibuktikan boleh dinyahkod secara unik.
