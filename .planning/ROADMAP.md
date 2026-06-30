@@ -7,7 +7,7 @@ Translate the Orchard Street Wordlists (7 English passphrase wordlists) into Sta
 ## Phases
 
 - [x] **Phase 1: Foundation & Documentation** — Malay README + FAQ; establish dedup/normalization tooling
-- [ ] **Phase 2: Short Lists & Pipeline Validation** — Alpha + QWERTY lists with dice variants; SQLite DBs for each; full pipeline including UD check, pruning, profanity screening, and DBP audit
+- [x] **Phase 2: Short Lists & Pipeline Validation** — Alpha + QWERTY lists with dice variants; SQLite DBs for each; full pipeline including UD check, pruning, profanity screening, and DBP audit
 - [ ] **Phase 3: Medium & Diceware Lists** — Medium (8,192) + diceware (7,776) + clean variant + SQLite DBs
 - [ ] **Phase 4: Long List & Final Verification** — Long list (17,576) + SQLite DB + entropy and word count verification across all 7 output files
 
@@ -42,9 +42,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] `02-01-PLAN.md` — Alpha list translation, pipeline processing, dice variant, and SQLite databases
-- [ ] `02-02-PLAN.md` — QWERTY list translation, pipeline processing, dice variant, and SQLite databases
-- [ ] `02-03-PLAN.md` — Profanity screening, DBP orthography audit, and final cross-verification
+- [x] `02-01-PLAN.md` — Alpha list translation, pipeline processing, dice variant, and SQLite databases
+- [x] `02-02-PLAN.md` — QWERTY list translation, pipeline processing, dice variant, and SQLite databases
+- [x] `02-03-PLAN.md` — Profanity screening, DBP orthography audit, and final cross-verification
 
 ### Phase 3: Medium & Diceware Lists
 **Goal**: Medium (8,192) and diceware (7,776 + clean variant) lists completed through the proven pipeline
@@ -76,6 +76,6 @@ Plans:
 | Phase | Reqs | Plans Complete | Status | Completed |
 |-------|------|----------------|--------|-----------|
 | 1. Foundation & Documentation | 4 | 2/2 | Complete | 2026-06-30 |
-| 2. Short Lists & Pipeline Validation | 12 | 0/3 | Planned | - |
+| 2. Short Lists & Pipeline Validation | 12 | 3/3 | Complete | 2026-06-30 |
 | 3. Medium & Diceware Lists | 6 | 0/0 | Not started | - |
 | 4. Long List & Final Verification | 3 | 0/0 | Not started | - |
