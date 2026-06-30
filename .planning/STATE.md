@@ -10,9 +10,11 @@ See: .planning/PROJECT.md (updated 2026-06-30)
 ## Current Position
 
 Phase: 5 — Web Passphrase Generator
-Plan: — (not yet planned)
-Status: Defining requirements
-Last activity: 2026-07-01 — Milestone v1.1 started
+Plan: 05-01 ✓ (html/index.html)
+Status: Phase 5 complete
+Last activity: 2026-07-01 — Phase 5 finished: passphrase generator HTML page
+
+Progress: [██████████] 80% (v1.1 in progress)
 
 ## Performance Metrics
 

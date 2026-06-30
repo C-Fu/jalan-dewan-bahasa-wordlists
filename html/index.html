@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Penjana Frasa Laluan — Jalan Dewan Bahasa</title>
+<script src="https://cdn.jsdelivr.net/npm/sql.js@1.10/dist/sql-wasm.js"></script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, #0a0a0f 0%, #101015 40%, #1a1a2e 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  color: #fff;
+}
+
+.gradient-shell {
+  padding: 1px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(255,255,255,0.05), transparent);
+  width: 100%;
+  max-width: 560px;
+}
+
+.card {
+  background: rgba(16, 16, 21, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 15px;
+  padding: 32px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.header h1 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.0114em;
+  margin-bottom: 6px;
+}
+
+.header p {
+  font-size: 14px;
+  color: #a3a3a3;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.controls label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #a3a3a3;
+  letter-spacing: -0.16px;
+}
+
+.controls input {
+  width: 60px;
+  padding: 6px 10px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  font-family: inherit;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.controls input:focus {
+  border-color: #6366F1;
+}
+
+.btn-primary {
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.15s, box-shadow 0.15s;
+  margin-left: auto;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+}
+
+.passphrase-area {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 20px;
+  min-height: 80px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-content: center;
+}
+
+.word-chip {
+  display: inline-block;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 15px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  user-select: none;
+}
+
+.word-chip:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: #6366F1;
+}
+
+.passphrase-area .placeholder {
+  color: #555;
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.btn-secondary:hover {
+  border-color: #6366F1;
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.btn-secondary.active {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: #10B981;
+  color: #10B981;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #555;
+}
+
+.info span {
+  color: #a3a3a3;
+}
+
+.status {
+  text-align: center;
+  font-size: 13px;
+  color: #6366F1;
+  margin-top: 16px;
+  min-height: 20px;
+}
+
+.error {
+  color: #ef4444;
+}
+
+.loading {
+  text-align: center;
+  padding: 60px 0;
+  color: #a3a3a3;
+  font-size: 14px;
+}
+
+.loading .spinner {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(99, 102, 241, 0.2);
+  border-top-color: #6366F1;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<div class="gradient-shell">
+<div class="card">
+  <div class="header">
+    <h1>Penjana Frasa Laluan</h1>
+    <p>Gunakan pangkalan data perkataan Jalan Dewan Bahasa untuk mencipta frasa laluan yang selamat.</p>
+  </div>
+
+  <div id="loading" class="loading">
+    <div class="spinner"></div>
+    <div>Memuatkan pangkalan data perkataan…</div>
+  </div>
+
+  <div id="app" style="display:none">
+    <div class="controls">
+      <label for="wordCount">Bilangan patah perkataan:</label>
+      <input type="number" id="wordCount" value="6" min="3" max="12">
+    </div>
+
+    <div class="passphrase-area" id="passphraseArea">
+      <div class="placeholder">Klik Jana untuk mencipta frasa laluan</div>
+    </div>
+
+    <div class="actions">
+      <button class="btn-primary" id="generateBtn">Jana Frasa Laluan</button>
+      <button class="btn-secondary" id="copyBtn">Salin</button>
+    </div>
+
+    <div class="info">
+      <span id="entropyDisplay">Entropi: — bit</span>
+      <span id="wordlistInfo">Senarai Kecil QWERTY (1,296 patah perkataan)</span>
+    </div>
+  </div>
+
+  <div id="statusMsg" class="status"></div>
+</div>
+</div>
+
+<script>
+let db = null;
+let totalWords = 1296;
+
+async function init() {
+  const loading = document.getElementById('loading');
+  const app = document.getElementById('app');
+  const statusMsg = document.getElementById('statusMsg');
+
+  try {
+    const SQL = await initSqlJs({
+      locateFile: file => `https://cdn.jsdelivr.net/npm/sql.js@1.10/dist/${file}`
+    });
+
+    const resp = await fetch('../db/jalan-dewan-bahasa-kecil-qwerty.db');
+    if (!resp.ok) throw new Error('Gagal memuatkan pangkalan data (HTTP ' + resp.status + ')');
+
+    const buf = await resp.arrayBuffer();
+    db = new SQL.Database(new Uint8Array(buf));
+
+    const count = db.exec("SELECT COUNT(*) AS c FROM words");
+    if (count.length > 0) totalWords = count[0].values[0][0];
+
+    loading.style.display = 'none';
+    app.style.display = 'block';
+
+    document.getElementById('wordlistInfo').textContent =
+      'Senarai Kecil QWERTY (' + totalWords.toLocaleString() + ' patah perkataan)';
+  } catch (err) {
+    loading.innerHTML = '<div class="error">Ralat: ' + err.message + '</div>';
+  }
+}
+
+function getWords(n) {
+  if (!db) return [];
+  const result = db.exec("SELECT word FROM words ORDER BY RANDOM() LIMIT " + n);
+  if (result.length === 0) return [];
+  return result[0].values.map(row => row[0]);
+}
+
+function renderPassphrase(words) {
+  const area = document.getElementById('passphraseArea');
+  if (!words || words.length === 0) {
+    area.innerHTML = '<div class="placeholder">Klik Jana untuk mencipta frasa laluan</div>';
+    return;
+  }
+  area.innerHTML = words.map((w, i) =>
+    '<span class="word-chip" data-index="' + i + '">' + w + '</span>'
+  ).join('');
+}
+
+let currentWords = [];
+
+function generate() {
+  const countInput = document.getElementById('wordCount');
+  let n = parseInt(countInput.value, 10);
+  if (isNaN(n) || n < 3) n = 3;
+  if (n > 12) n = 12;
+  countInput.value = n;
+
+  const words = getWords(n);
+  if (words.length === 0) {
+    setStatus('Ralat: Tiada perkataan dalam pangkalan data', 'error');
+    return;
+  }
+
+  currentWords = words;
+  renderPassphrase(words);
+  updateEntropy(words.length);
+  clearStatus();
+}
+
+function replaceWord(index) {
+  if (!db || currentWords.length === 0) return;
+  const result = db.exec("SELECT word FROM words ORDER BY RANDOM() LIMIT 1");
+  if (result.length === 0) return;
+  const newWord = result[0].values[0][0];
+  currentWords[index] = newWord;
+  renderPassphrase(currentWords);
+  updateEntropy(currentWords.length);
+}
+
+document.getElementById('passphraseArea').addEventListener('click', function(e) {
+  const chip = e.target.closest('.word-chip');
+  if (chip) {
+    const idx = parseInt(chip.dataset.index, 10);
+    replaceWord(idx);
+  }
+});
+
+document.getElementById('generateBtn').addEventListener('click', generate);
+
+document.getElementById('copyBtn').addEventListener('click', function() {
+  if (currentWords.length === 0) {
+    setStatus('Tiada frasa laluan untuk disalin', 'error');
+    return;
+  }
+  const text = currentWords.join(' ');
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = 'Disalin!';
+    btn.classList.add('active');
+    setStatus('Frasa laluan telah disalin ke papan klip');
+    setTimeout(() => {
+      btn.textContent = 'Salin';
+      btn.classList.remove('active');
+    }, 2000);
+  }).catch(() => {
+    setStatus('Gagal menyalin — salin secara manual', 'error');
+  });
+});
+
+function updateEntropy(wordCount) {
+  if (wordCount === 0) return;
+  const bitsPerWord = Math.log2(totalWords);
+  const totalBits = bitsPerWord * wordCount;
+  document.getElementById('entropyDisplay').textContent =
+    'Entropi: ~' + totalBits.toFixed(1) + ' bit (' + wordCount + ' perkataan × ' + bitsPerWord.toFixed(3) + ' bit/pkataan)';
+}
+
+function setStatus(msg, type) {
+  const el = document.getElementById('statusMsg');
+  el.textContent = msg;
+  el.className = 'status' + (type ? ' ' + type : '');
+}
+
+function clearStatus() {
+  document.getElementById('statusMsg').textContent = '';
+  document.getElementById('statusMsg').className = 'status';
+}
+
+init();
+</script>
+</body>
+</html>
