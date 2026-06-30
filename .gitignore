@@ -4,3 +4,9 @@ justfile
 .justfile
 .planning/
 AGENTS.md
+
+# Scratch files from translation pipeline
+scratch/
+
+# Database output files
+db/
