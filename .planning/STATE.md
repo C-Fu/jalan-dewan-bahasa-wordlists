@@ -5,33 +5,33 @@
 See: .planning/PROJECT.md (updated 2026-06-30)
 
 **Core value:** Malay speakers can generate secure, uniquely-decodable passphrases using common Malay words — without relying on English wordlists.
-**Current focus:** Phase 1 — Foundation & Documentation
+**Current focus:** Phase 2 — Short Lists & Pipeline Validation
 
 ## Current Position
 
-Phase: 1 of 4 (Foundation & Documentation)
-Plan: — (plans created, not yet executed)
-Status: Planning complete — 2 plans ready for execution
-Last activity: 2026-06-30 — Phase 1 plans created (01-documentation, 02-tooling)
+Phase: 2 of 4 (Short Lists & Pipeline Validation)
+Plan: — (not yet planned)
+Status: Ready to plan
+Last activity: 2026-06-30 — Phase 1 complete, transitioned to Phase 2
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [██░░░░░░░░] 25%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0
-- Average duration: — min
-- Total execution time: — hours
+- Total plans completed: 2
+- Average duration: ~3 min
+- Total execution time: ~6 min
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| — | — | — | — |
+| Phase 1 | 2 | ~6 min | ~3 min |
 
 **Recent Trend:**
-- Last 5 plans: —
-- Trend: —
+- Last 5 plans: Phase 1-01 (2:46), Phase 1-02 (3:00)
+- Trend: On track
 
 *Updated after each plan completion*
 
@@ -65,5 +65,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-06-30
-Stopped at: Roadmap updated — 4 phases, 25/25 requirements mapped (SQLite databases added)
+Stopped at: Phase 1 complete — transitioned to Phase 2. README.md, FAQ.md, Tidy, pipeline.sh delivered.
 Resume file: None

@@ -6,7 +6,7 @@ Translate the Orchard Street Wordlists (7 English passphrase wordlists) into Sta
 
 ## Phases
 
-- [ ] **Phase 1: Foundation & Documentation** — Malay README + FAQ; establish dedup/normalization tooling
+- [x] **Phase 1: Foundation & Documentation** — Malay README + FAQ; establish dedup/normalization tooling
 - [ ] **Phase 2: Short Lists & Pipeline Validation** — Alpha + QWERTY lists with dice variants; SQLite DBs for each; full pipeline including UD check, pruning, profanity screening, and DBP audit
 - [ ] **Phase 3: Medium & Diceware Lists** — Medium (8,192) + diceware (7,776) + clean variant + SQLite DBs
 - [ ] **Phase 4: Long List & Final Verification** — Long list (17,576) + SQLite DB + entropy and word count verification across all 7 output files
@@ -22,11 +22,11 @@ Translate the Orchard Street Wordlists (7 English passphrase wordlists) into Sta
    2. FAQ.md exists in Malay answering common questions about passphrase generation, wordlist usage, and translation approach
    3. Deduplication and normalization tooling is installed, configured with Malay locale (`--locale ms`), and confirmed working on a sample English→Malay translation
    4. The pipeline workflow (translate → dedup → normalize) is reproducible and documented for repeatable use across all list sizes
-**Plans**: 2 plans
-
+**Plans**: 2 plans (both complete)
+    
 Plans:
-- [ ] `01-01-PLAN.md` — Malay Documentation (README.md + FAQ.md translation)
-- [ ] `01-02-PLAN.md` — Pipeline Tooling & Setup (Tidy install, scratch dir, pipeline script)
+- [x] `01-01-PLAN.md` — Malay Documentation (README.md + FAQ.md translation)
+- [x] `01-02-PLAN.md` — Pipeline Tooling & Setup (Tidy install, scratch dir, pipeline script)
 
 ### Phase 2: Short Lists & Pipeline Validation
 **Goal**: Both short lists (alpha + QWERTY) complete with dice-roll variants, proving the full pipeline including UD check, Schlinkert pruning, profanity screening, and DBP orthography audit
@@ -39,7 +39,12 @@ Plans:
    4. `jalan-dewan-bahasa-kecil-qwerty-dadu.txt` exists with same 1,296 words and tab-separated 4-dice-roll prefixes
    5. All short lists pass `tidy -AAAA` (result: "Uniquely decodable? : true"), contain no profane words, and use DBP-standard Malay orthography (no Indonesian -itas/-sih variants)
    6. `db/jalan-dewan-bahasa-kecil-alpha.db`, `kecil-alpha-dadu.db`, `kecil-qwerty.db`, and `kecil-qwerty-dadu.db` exist with correct word tables
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] `02-01-PLAN.md` — Alpha list translation, pipeline processing, dice variant, and SQLite databases
+- [ ] `02-02-PLAN.md` — QWERTY list translation, pipeline processing, dice variant, and SQLite databases
+- [ ] `02-03-PLAN.md` — Profanity screening, DBP orthography audit, and final cross-verification
 
 ### Phase 3: Medium & Diceware Lists
 **Goal**: Medium (8,192) and diceware (7,776 + clean variant) lists completed through the proven pipeline
@@ -70,7 +75,7 @@ Plans:
 
 | Phase | Reqs | Plans Complete | Status | Completed |
 |-------|------|----------------|--------|-----------|
-| 1. Foundation & Documentation | 4 | 0/2 | Planning | - |
-| 2. Short Lists & Pipeline Validation | 12 | 0/0 | Not started | - |
+| 1. Foundation & Documentation | 4 | 2/2 | Complete | 2026-06-30 |
+| 2. Short Lists & Pipeline Validation | 12 | 0/3 | Planned | - |
 | 3. Medium & Diceware Lists | 6 | 0/0 | Not started | - |
 | 4. Long List & Final Verification | 3 | 0/0 | Not started | - |
