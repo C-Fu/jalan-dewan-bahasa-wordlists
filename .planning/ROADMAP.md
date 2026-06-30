@@ -56,7 +56,12 @@ Plans:
    3. `jalan-dewan-bahasa-dadu-bersih.txt` exists with same 7,776 words without dice-roll prefixes
    4. All lists from this phase pass `tidy -AAAA` unique decodability check and meet word count targets
    5. `db/jalan-dewan-bahasa-sederhana.db`, `dadu.db`, and `dadu-bersih.db` exist with correct word tables
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] `03-01-PLAN.md` — Medium list (sederhana): Translate 8,192 words → pipeline → SQLite DB
+- [ ] `03-02-PLAN.md` — Diceware lists (dadu + dadu-bersih): Translate 7,776 words → pipeline → dice + clean variants → 2 SQLite DBs
+- [ ] `03-03-PLAN.md` — Quality gate: Profanity screening, DBP audit, final verification
 
 ### Phase 4: Long List & Final Verification
 **Goal**: Long list (17,576) complete; all 7 output files verified for unique decodability, entropy, and word count
@@ -77,5 +82,5 @@ Plans:
 |-------|------|----------------|--------|-----------|
 | 1. Foundation & Documentation | 4 | 2/2 | Complete | 2026-06-30 |
 | 2. Short Lists & Pipeline Validation | 12 | 3/3 | Complete | 2026-06-30 |
-| 3. Medium & Diceware Lists | 6 | 0/0 | Not started | - |
+| 3. Medium & Diceware Lists | 6 | 0/3 | Planned | - |
 | 4. Long List & Final Verification | 3 | 0/0 | Not started | - |
