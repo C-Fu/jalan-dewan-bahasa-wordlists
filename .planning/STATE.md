@@ -1,0 +1,68 @@
+# Project State
+
+## Project Reference
+
+See: .planning/PROJECT.md (updated 2026-06-30)
+
+**Core value:** Malay speakers can generate secure, uniquely-decodable passphrases using common Malay words — without relying on English wordlists.
+**Current focus:** Phase 1 — Foundation & Documentation
+
+## Current Position
+
+Phase: 1 of 4 (Foundation & Documentation)
+Plan: — (not yet planned)
+Status: Ready to plan
+Last activity: 2026-06-30 — Roadmap created
+
+Progress: [░░░░░░░░░░] 0%
+
+## Performance Metrics
+
+**Velocity:**
+- Total plans completed: 0
+- Average duration: — min
+- Total execution time: — hours
+
+**By Phase:**
+
+| Phase | Plans | Total | Avg/Plan |
+|-------|-------|-------|----------|
+| — | — | — | — |
+
+**Recent Trend:**
+- Last 5 plans: —
+- Trend: —
+
+*Updated after each plan completion*
+
+## Accumulated Context
+
+### Decisions
+
+Decisions are logged in PROJECT.md Key Decisions table.
+Recent decisions affecting current work:
+
+- Pipeline order: Translation (DeepSeek v4 Pro) → Dedup → Normalize (Tidy) → Schlinkert Prune (Tidy -K) → Verify (Tidy -AAAA)
+- Build order: Docs first, then alpha → qwerty → medium → diceware → long (smallest-first de-risking)
+- Malay orthography: DBP Standard Malaysia (not Indonesian/KBBI)
+- Cross-cutting requirements distributed: XCUT-01/02 (dedup/normalize) in Phase 1, XCUT-03/04/05/06 (UD/prune/profanity/DBP) in Phase 2, XCUT-07 (entropy verification) in Phase 4
+
+### Pending Todos
+
+None yet.
+
+### Blockers/Concerns
+
+None yet.
+
+## Deferred Items
+
+| Category | Item | Status | Deferred At |
+|----------|------|--------|-------------|
+| *(none)* | | | |
+
+## Session Continuity
+
+Last session: 2026-06-30
+Stopped at: Roadmap creation complete — 4 phases, 17/17 requirements mapped
+Resume file: None

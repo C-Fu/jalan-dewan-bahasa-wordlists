@@ -69,28 +69,28 @@ Deferred to future release. Tracked but not in current roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DOC-01 | — | Pending |
-| DOC-02 | — | Pending |
-| ALFA-01 | — | Pending |
-| ALFA-02 | — | Pending |
-| QWER-01 | — | Pending |
-| QWER-02 | — | Pending |
-| SEDE-01 | — | Pending |
-| DADU-01 | — | Pending |
-| DADU-02 | — | Pending |
-| BESA-01 | — | Pending |
-| XCUT-01 | — | Pending |
-| XCUT-02 | — | Pending |
-| XCUT-03 | — | Pending |
-| XCUT-04 | — | Pending |
-| XCUT-05 | — | Pending |
-| XCUT-06 | — | Pending |
-| XCUT-07 | — | Pending |
+| DOC-01 | Phase 1 | Pending |
+| DOC-02 | Phase 1 | Pending |
+| ALFA-01 | Phase 2 | Pending |
+| ALFA-02 | Phase 2 | Pending |
+| QWER-01 | Phase 2 | Pending |
+| QWER-02 | Phase 2 | Pending |
+| SEDE-01 | Phase 3 | Pending |
+| DADU-01 | Phase 3 | Pending |
+| DADU-02 | Phase 3 | Pending |
+| BESA-01 | Phase 4 | Pending |
+| XCUT-01 | Phase 1 | Pending |
+| XCUT-02 | Phase 1 | Pending |
+| XCUT-03 | Phase 2 | Pending |
+| XCUT-04 | Phase 2 | Pending |
+| XCUT-05 | Phase 2 | Pending |
+| XCUT-06 | Phase 2 | Pending |
+| XCUT-07 | Phase 4 | Pending |
 
 **Coverage:**
 - v1 requirements: 17 total
-- Mapped to phases: 0
-- Unmapped: 17 ⚠️
+- Mapped to phases: 17
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-06-30*
