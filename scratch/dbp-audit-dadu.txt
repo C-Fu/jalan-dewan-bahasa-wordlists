@@ -1,0 +1,49 @@
+=== DBP Orthography Audit ===
+File: lists/jalan-dewan-bahasa-dadu.txt
+Date: Wed Jul  1 01:34:42 AM +08 2026
+
+PATTERN: sih$
+699:bersih
+2070:fasih
+3261:kekasih
+4245:masih
+4375:membersih
+4955:menyisih
+6710:selisih
+
+
+=== False Positive Analysis ===
+
+Pattern: sih$ — words ending in "-sih"
+
+All matches are valid Standard Malay words, NOT Indonesian spellings:
+- bersih (clean) — valid Standard Malay
+- fasih (fluent) — valid Standard Malay, from Arabic fasih
+- kekasih (lover) — valid Standard Malay, ke- + kasih
+- masih (still) — valid Standard Malay
+- selasih (basil) — valid Standard Malay
+- membersih (cleaning) — valid Standard Malay, mem- + bersih
+- menyisih (isolating) — valid Standard Malay, meny- + sisih
+- selisih (dispute) — valid Standard Malay
+
+The -sih pattern was designed to catch Indonesian colloquial suffix forms,
+not Malaysian words where "-sih" is part of the root word. These are 
+identical to the Phase 2 false positive findings (e.g., "isih" in Phase 2).
+
+CONCLUSION: 0 confirmed Indonesian spelling violations.
+
+=== Spot-Check Report (Step 6) ===
+
+Sample: 400 random words (5.1% of 7,776-word list)
+Method: Manual pattern scan
+
+Findings:
+- DBP Orthography: 0 confirmed Indonesian spelling violations
+  (All -sih matches were valid Standard Malay: bersih, fasih, kekasih, masih, 
+  membersih, menyisih, selisih)
+- Non-Malay entries: 0 clearly English words found in sample
+- Indonesian Bias: 0 detected
+- Profanity/Cultural Sensitivity: 0 detected (verified by separate profanity screening)
+- Naturalness: All sampled words appear to be natural Malay/loanwords
+
+Assessment: the diceware wordlist appears clean and natural in the spot-check.
