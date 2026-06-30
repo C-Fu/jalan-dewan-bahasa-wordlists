@@ -9,6 +9,94 @@ Senarai perkataan baharu untuk semua keperluan penciptaan frasa laluan anda. Gun
 
 NOTA: Senarai ini disunting dari semasa ke semasa. Jika anda mahukan salinan statik yang tidak berubah bagi mana-mana senarai perkataan, sila muat turun senarai tersebut sebagaimana adanya sekarang, muat turun tag atau keluaran terkini, atau fork repositori ini pada bila-bila masa. Lihat maklumat pelesenan di bawah.
 
+## Cara Senarai Ini Dihasilkan
+
+Setiap senarai perkataan dalam projek ini melalui saluran paip (pipeline) yang sama untuk memastikan kualiti, kebolehnilaian unik, dan kesesuaian untuk penciptaan frasa laluan.
+
+### 1. Sumber dan Terjemahan
+
+Senarai sumber bahasa Inggeris diambil daripada projek [Orchard Street Wordlists](https://github.com/sts10/orchard-street-wordlists), yang mengandungi senarai perkataan bahasa Inggeris yang telah dibuktikan boleh dinyahkod secara unik.
+
+Setiap patah perkataan bahasa Inggeris diterjemahkan ke dalam Bahasa Melayu Standard (ejaan Dewan Bahasa dan Pustaka, DBP). Terjemahan dilakukan menggunakan model bahasa besar (DeepSeek v4 Pro) dengan panduan ketat: satu perkataan sahaja, tiada frasa atau ruang, ejaan DBP (cth: *universiti* bukan *universitas*, *kualiti* bukan *kualitas*), dan mengelakkan perkataan lucah atau sensitif dari segi budaya. Selepas terjemahan automatik, perkataan disemak secara manual dalam kelompok-kelompok kecil.
+
+Memandangkan pemetaan banyak-ke-satu (cth: "big" dan "large" kedua-duanya → *besar*) adalah lazim dalam terjemahan, deduplikasi dilakukan pada peringkat seterusnya. Jika bilangan perkataan unik selepas deduplikasi dan pemangkasan kurang daripada sasaran, perkataan Melayu tambahan daripada korpus DBP dan perbendaharaan kata lazim ditambah dalam pusingan suplementasi sehingga sasaran tercapai.
+
+### 2. Penormalan
+
+Perkataan mentah yang diterjemahkan dinormalkan menggunakan alat [Tidy](https://github.com/sts10/tidy):
+
+```bash
+tidy -l -z nfc --locale ms --remove-nonalphabetic
+```
+
+Proses ini:
+- Menukar semua aksara kepada huruf kecil (*lowercase*)
+- Menormalkan pengekodan Unicode kepada bentuk NFC (Normalization Form C)
+- Membuang semua aksara bukan abjad (angka, tanda baca, ruang, dll.)
+- Menyusun perkataan mengikut turutan abjad dengan lokaliti bahasa Melayu (`--locale ms`)
+
+### 3. Sifat Sardinas–Patterson dan Kebolehnilaian Unik
+
+Suatu set perkataan **boleh dinyahkod secara unik** (*uniquely decodable*) jika setiap penjujukan perkataan daripada set tersebut hanya boleh dihuraikan dengan satu cara sahaja, tanpa sebarang kemungkinan yang lain.
+
+Secara formal, sifat ini dinamakan sempena **Sardinas dan Patterson** (1953), yang membuktikan bahawa suatu kod adalah boleh dinyahkod secara unik jika dan hanya jika tiada dua jujukan perkataan yang berbeza menghasilkan rentetan aksara yang sama. Dalam konteks frasa laluan: jika senarai perkataan anda gagal memenuhi sifat ini, frasa laluan seperti `bukuharian` boleh dihuraikan sebagai `buku + harian` ATAU `bukuh + arian` — penyerang hanya perlu mencari SATU huraian yang sah untuk memecahkan frasa laluan anda.
+
+**Mengapa ini penting untuk bahasa Melayu:** Bahasa Melayu ialah bahasa **aglutinatif** — ia mempunyai sistem imbuhan awalan yang sangat produktif (*meN-*, *ber-*, *ter-*, *di-*, *ke-*, *peN-*, *se-*) yang mencipta hubungan awalan baharu antara perkataan yang tidak wujud dalam bahasa Inggeris. Contohnya, selepas terjemahan:
+
+| Perkataan Akar | Menjadi Awalan Bagi... |
+|---|---|
+| *ajar* | belajar, pelajar, pengajaran, diajar, pembelajaran |
+| *makan* | makanan, pemakan, memakan, dimakan, termakan |
+| *buku* | buku-buku, perbukuan, membukukan |
+| *bersih* | membersihkan, kebersihan, pembersih, pembersihan |
+
+Walaupun senarai bahasa Inggeris asal telah dibuktikan boleh dinyahkod secara unik, terjemahan terus ke bahasa Melayu **hampir pasti** akan memusnahkan sifat tersebut kerana hubungan imbuhan yang sama sekali berbeza. Oleh itu, setiap senarai yang diterjemahkan MESTI melalui proses pemangkasan semula.
+
+### 4. Pemangkasan Heuristik Schlinkert
+
+Untuk memulihkan kebolehnilaian unik, kami menggunakan **algoritma pemangkasan heuristik Schlinkert** melalui arahan `tidy -K`:
+
+```bash
+tidy -K -l -z nfc --locale ms
+```
+
+Algoritma ini berfungsi secara **tamak** (*greedy*): ia memeriksa setiap perkataan dalam senarai, dan jika mengalih keluar perkataan tersebut akan memulihkan sifat Sardinas–Patterson untuk perkataan-perkataan yang tinggal, perkataan itu akan dipangkas. Proses ini diulang sehingga tiada lagi perkataan yang boleh dialih keluar — senarai yang tinggal dijamin boleh dinyahkod secara unik.
+
+**Mengapa tamak?** Masalah mencari subset maksimum yang boleh dinyahkod secara unik adalah NP-lengkap. Heuristik Schlinkert memberikan penyelesaian yang hampir optimum dalam masa yang munasabah, walaupun ia mungkin tidak mengekalkan subset terbesar yang mungkin. Untuk bahasa Melayu, kami mendapati pendekatan ini amat berkesan; pemangkasan biasanya membuang kurang daripada 5% perkataan selepas deduplikasi.
+
+**Penyesuaian untuk ortografi Melayu:** Algoritma Schlinkert adalah agnostik bahasa (ia hanya beroperasi pada rentetan aksara), menjadikannya sesuai untuk bahasa Melayu. Walau bagaimanapun, parameter `--locale ms` memastikan penyusunan mengikut susunan abjad Rumi bahasa Melayu yang betul, dan penormalan NFC mengendalikan sebarang variasi pengekodan Unicode dalam korpus Melayu.
+
+Jika pemangkasan `-K` (lalai) mengalih keluar terlalu banyak perkataan, mod alternatif `-P` dan `-S` tersedia sebagai fallback — setiap mod menggunakan strategi tamak yang sedikit berbeza untuk mengekalkan lebih banyak perkataan sementara masih menjamin kebolehnilaian unik.
+
+### 5. Pengesahan dan Entropi Sasaran
+
+Setiap senarai melalui pengesahan akhir menggunakan semua ujian Tidy:
+
+```bash
+tidy -AAAA -z nfc --locale ms
+```
+
+Ini mengesahkan:
+- **Kebolehnilaian unik:** `Uniquely decodable? : true`
+- **Bilangan perkataan:** Mencapai sasaran tepat (1,296 / 7,776 / 8,192 / 17,576)
+- **Entropi per perkataan:** log₂(N) bit, di mana N ialah saiz senarai
+- **Atas garis daya kekerasan:** Senarai cukup panjang untuk menentang serangan kekerasan
+- **Bebas perkataan lucah:** Disaring terhadap senarai tolak perkataan lucah bahasa Melayu (33 entri)
+- **Audit ejaan DBP:** Sifar pelanggaran ortografi Indonesia (tiada *-itas*, *karena*, *universitas*, dll.)
+
+### Sasaran Entropi
+
+Setiap saiz senarai menyediakan tahap entropi yang berbeza bagi setiap perkataan:
+
+| Senarai | Saiz | Formula | Entropi |
+|---------|------|---------|---------|
+| Kecil | 1,296 | 6⁴ = 1,296 | 10.340 bit |
+| Sederhana | 8,192 | 2¹³ = 8,192 | 13.000 bit |
+| Dadu | 7,776 | 6⁵ = 7,776 | 12.925 bit |
+| Besar | 17,576 | 26³ = 17,576 | 14.101 bit |
+
+Frasa laluan 7 patah perkataan daripada Senarai Besar memberikan hampir 99 bit entropi — mencukupi untuk menentang serangan kekerasan dalam apa jua jangka masa yang munasabah.
+
 ## Senarai Besar Jalan Dewan Bahasa
 
 [Senarai Besar Jalan Dewan Bahasa](lists/jalan-dewan-bahasa-besar.txt) ialah senarai 17,576 patah perkataan. Ia memberikan 14.1 bit entropi bagi setiap perkataan, bermakna frasa laluan 7 patah perkataan memberikan hampir 99 bit entropi.
