@@ -59,9 +59,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] `03-01-PLAN.md` — Medium list (sederhana): Translate 8,192 words → pipeline → SQLite DB
-- [ ] `03-02-PLAN.md` — Diceware lists (dadu + dadu-bersih): Translate 7,776 words → pipeline → dice + clean variants → 2 SQLite DBs
-- [ ] `03-03-PLAN.md` — Quality gate: Profanity screening, DBP audit, final verification
+- [x] `03-01-PLAN.md` — Medium list (sederhana): Translate 8,192 words → pipeline → SQLite DB
+- [x] `03-02-PLAN.md` — Diceware lists (dadu + dadu-bersih): Translate 7,776 words → pipeline → dice + clean variants → 2 SQLite DBs
+- [x] `03-03-PLAN.md` — Quality gate: Profanity screening, DBP audit, final verification
 
 ### Phase 4: Long List & Final Verification
 **Goal**: Long list (17,576) complete; all 7 output files verified for unique decodability, entropy, and word count
@@ -74,7 +74,11 @@ Plans:
    4. All .txt files pass `tidy -AAAA` with result "Uniquely decodable? : true"
    5. All .txt files meet or exceed target entropy (bits/word) and exact word count for each list variant
    6. README.md is updated with final file listing, accurate word counts, and entropy values for all produced lists
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] `04-01-PLAN.md` — Long list translation (17,576 words) → pipeline → SQLite database + profanity/DBP screening
+- [ ] `04-02-PLAN.md` — Cross-verification of all 8 .txt + 8 .db files + README.md update with final stats
 
 ## Progress
 
@@ -82,5 +86,5 @@ Plans:
 |-------|------|----------------|--------|-----------|
 | 1. Foundation & Documentation | 4 | 2/2 | Complete | 2026-06-30 |
 | 2. Short Lists & Pipeline Validation | 12 | 3/3 | Complete | 2026-06-30 |
-| 3. Medium & Diceware Lists | 6 | 0/3 | Planned | - |
-| 4. Long List & Final Verification | 3 | 0/0 | Not started | - |
+| 3. Medium & Diceware Lists | 6 | 3/3 | Complete | 2026-07-01 |
+| 4. Long List & Final Verification | 3 | 0/2 | Planned | - |
