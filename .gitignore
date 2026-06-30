@@ -2,3 +2,5 @@ blended-source.txt
 words-to-blend-in.txt
 justfile
 .justfile
+.planning/
+AGENTS.md
