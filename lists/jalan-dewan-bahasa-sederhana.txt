@@ -109,7 +109,6 @@ apabila
 apalagi
 apapun
 aplikasi
-arak
 aritmetik
 arkad
 arkib
@@ -119,6 +118,7 @@ artifak
 artikulasi
 artileri
 artritis
+arus
 asal
 asap
 asas
@@ -153,8 +153,8 @@ ayam
 ayat
 azam
 babak
-babi
 baca
+badak
 badan
 badminton
 bagel
@@ -235,6 +235,7 @@ beban
 bebas
 bedil
 beg
+bekal
 bekas
 bela
 belah
@@ -260,7 +261,6 @@ bengkel
 bengkok
 bentuk
 benua
-berak
 beranda
 berani
 beras
@@ -443,9 +443,9 @@ cedera
 cekal
 cekang
 celah
-celaka
 celaru
 celikhuruf
+celup
 cemar
 cemas
 cemburu
@@ -2181,7 +2181,6 @@ growing
 grown
 grows
 growth
-gua
 guarantee
 guaranteed
 guarantees
@@ -2193,6 +2192,7 @@ guerrilla
 guess
 guest
 guests
+gugat
 gugup
 gugur
 guidance
@@ -2778,7 +2778,7 @@ jabatan
 jabir
 jaga
 jagung
-jahanam
+jahil
 jahit
 jaja
 jajah
@@ -3183,11 +3183,11 @@ lafaz
 lagak
 lagu
 lagun
+lahak
 lahan
 lahir
 lajak
 lakar
-laknat
 lakonan
 lakros
 laksamana
@@ -7161,10 +7161,10 @@ tafsir
 tag
 tahan
 tahap
-tahi
 tahun
 tahunan
 tajam
+taji
 tajuk
 takbur
 takdir

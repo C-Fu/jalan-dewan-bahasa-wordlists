@@ -1031,10 +1031,10 @@ butang
 butir
 butiran
 butler
-butuh
 butuhnya
 butut
 buyung
+buyut
 cabai
 cabang
 cabangnya
@@ -2415,7 +2415,6 @@ graviti
 gred
 grid
 griffin
-gua
 guam
 guano
 guar
@@ -6380,6 +6379,8 @@ putih
 putihkannya
 putus
 putuskannya
+qari
+qasar
 raba
 rabakan
 rabun
@@ -7765,12 +7766,11 @@ zil
 zilai
 zilal
 zimbabwei
-zina
 zinat
 zink
 zip
 zipper
 zirafah
+zirah
 zirbad
 zirkon
-zit
