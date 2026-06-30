@@ -20,6 +20,16 @@ Malay speakers can generate secure, uniquely-decodable passphrases using common 
 | Diceware (dadu) + Clean | 7,776 | 12.925 bits |
 | Long (besar) | 17,576 | 14.101 bits |
 
+## Current Milestone: v1.1 Web Passphrase Generator
+
+**Goal:** A single HTML page using sql.js and the existing wordlist database to generate random Bahasa Melayu passphrases in-browser.
+
+**Target features:**
+- Load `jalan-dewan-bahasa-kecil-qwerty.db` via sql.js (WebAssembly SQLite)
+- Generate random passphrases with configurable word count
+- Dark-mode UI following DESIGN.md (indigo accent, glassy surfaces, system font)
+- Pure JavaScript + single HTML file in `html/` directory — zero dependencies beyond sql.js CDN
+
 ## Requirements
 
 ### Validated
@@ -45,7 +55,8 @@ Malay speakers can generate secure, uniquely-decodable passphrases using common 
 
 ### Active
 
-(Ready for next milestone definition — run `/gsd-new-milestone`)
+- [ ] **WEB-01**: HTML page at `html/index.html` loads the QWERTY wordlist SQLite database via sql.js and generates random passphrases from it
+- [ ] **WEB-02**: Page follows DESIGN.md visual style (dark mode, #6366F1 primary accent, glassy card surfaces, system font)
 
 ### Out of Scope
 

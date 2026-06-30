@@ -5,15 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-06-30)
 
 **Core value:** Malay speakers can generate secure, uniquely-decodable passphrases using common Malay words — without relying on English wordlists.
-**Current focus:** Project Complete
+**Current focus:** Milestone v1.1 — Web Passphrase Generator
 
 ## Current Position
 
-Phase: 4 of 4 — Complete
-Status: **ALL PHASES COMPLETE**
-Last activity: 2026-07-01 — Phase 4 complete: besar (17,576), cross-verification (8 .txt + 8 .db), README updated
-
-Progress: [██████████] 100%
+Phase: 5 — Web Passphrase Generator
+Plan: — (not yet planned)
+Status: Defining requirements
+Last activity: 2026-07-01 — Milestone v1.1 started
 
 ## Performance Metrics
 
