@@ -276,7 +276,9 @@ Versi pangkalan data SQLite bagi semua senarai perkataan tersedia dalam direktor
 
 ## Penjana Frasa Laluan Dalam Talian
 
-Anda boleh menggunakan [StrongPhrase.net](https://strongphrase.net/#/more) untuk menjana frasa laluan daripada Senarai Besar dan Senarai QWERTY. [Kod sumber tersedia di GitLab](https://gitlab.com/strongphrase/StrongPhrase.net).
+Gunakan [Penjana Frasa Laluan Jalan Dewan Bahasa](https://C-Fu.github.io/jalan-dewan-bahasa-wordlists/html/index.html) — penjana dalam pelayar yang memuatkan pangkalan data SQLite secara langsung menggunakan sql.js (WebAssembly), tanpa pelayan atau pemasangan.
+
+Anda juga boleh menggunakan [StrongPhrase.net](https://strongphrase.net/#/more) untuk menjana frasa laluan daripada Senarai Besar dan Senarai QWERTY. [Kod sumber tersedia di GitLab](https://gitlab.com/strongphrase/StrongPhrase.net).
 
 ## Soalan Lazim
 
