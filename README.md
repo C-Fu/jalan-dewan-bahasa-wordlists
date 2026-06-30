@@ -15,23 +15,23 @@ NOTA: Senarai ini disunting dari semasa ke semasa. Jika anda mahukan salinan sta
 
 ```text
 Panjang senarai             : 17576 patah perkataan
-Purata panjang perkataan    : 7.98 aksara
-Panjang perkataan terpendek : 3 aksara (ada)
-Panjang perkataan terpanjang: 15 aksara (penyelesaiannya)
+Purata panjang perkataan    : 7.48 aksara
+Panjang perkataan terpendek : 3 aksara (aim)
+Panjang perkataan terpanjang: 16 aksara (professionalisme)
 Bebas perkataan awalan?     : false
 Boleh dinyahkod secara unik?: true
 Entropi per perkataan       : 14.101 bit
-Kecekapan per aksara        : 1.767 bit
+Kecekapan per aksara        : 1.885 bit
 Atas garis daya kekerasan?  : true
-Purata jarak suntingan      : 7.915
+Purata jarak suntingan      : 7.434
 
 Contoh perkataan
 ----------------
-perjalanan kebersihan pengurusan masyarakat keupayaan
-perkembangan pengalaman kemudahan peraturan keperluan
-pembangunan pentadbiran keselamatan penyelidikan penubuhan
-kemungkinan pembentukan perhubungan penyelesaian kedudukan
-pengeluaran pelaksanaan kecekapan keseimbangan penerangan
+ababil abad abadi abaii abaikan
+abandon abandonmen abatemen abbey abbot
+abbreviasi abbreviat abdas abdii abdikan
+abdomen abdominal abducsi abduct aberrasi
+abid abide abjadi abjadkan abnormal
 ```
 
 ## Senarai Sederhana Jalan Dewan Bahasa
