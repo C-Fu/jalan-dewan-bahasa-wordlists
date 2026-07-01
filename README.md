@@ -1,6 +1,6 @@
 # Senarai Perkataan Jalan Dewan Bahasa
 
-Senarai perkataan baharu untuk semua keperluan penciptaan frasa laluan anda. Gunakan senarai perkataan ini untuk mencipta frasa laluan yang kukuh dan selamat, sama ada [dengan dadu](https://www.eff.org/dice) atau penjana kata laluan yang terbina dalam sesetengah pengurus kata laluan.
+Senarai perkataan baharu untuk semua keperluan penciptaan frasa laluan anda. Gunakan senarai perkataan ini untuk mencipta frasa laluan yang kukuh dan selamat, sama ada [dengan dadu](https://www.eff.org/dice) atau penjana kata laluan yang terbina dalam sesetengah pengurus kata laluan. Lihat [xkcd: Password Strength](https://xkcd.com/936/) untuk memahami mengapa frasa laluan lebih selamat daripada kata laluan biasa.
 
 * Terdiri daripada perkataan lazim yang ditemui dalam Wikipedia bahasa Melayu dan sumber bahasa Melayu Malaysia
 * **Boleh dinyahkod secara unik**, maka selamat untuk menggabungkan perkataan dalam frasa laluan tanpa pembatas
