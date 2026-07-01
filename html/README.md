@@ -41,24 +41,24 @@ flowchart LR
 ```mermaid
 flowchart TD
     subgraph Init["Fasa Permulaan (init)"]
-        A[Muat sql.js WebAssembly] --> B[Fetch ../db/*.db]
-        B --> C[Cipta SQL.Database]
-        C --> D[Kira jumlah perkataan]
-        D --> E[Sembunyi loading, tunjuk app]
+        A["Muat sql.js WebAssembly"] --> B["Fetch ../db/*.db"]
+        B --> C["Cipta SQL.Database"]
+        C --> D["Kira jumlah perkataan"]
+        D --> E["Sembunyi loading, tunjuk app"]
     end
 
     subgraph Generate["Penjanaan Frasa"]
-        F[Jana: Baca input wordCount] --> G[SQL: ORDER BY RANDOM() LIMIT N]
-        G --> H[Capitalize huruf pertama]
-        H --> I[Pilih separator rawak]
-        I --> J[Render chip + bina teks salin]
-        J --> K[Kira & papar entropi]
+        F["Jana: Baca input wordCount"] --> G["SQL: ORDER BY RANDOM() LIMIT N"]
+        G --> H["Capitalize huruf pertama"]
+        H --> I["Pilih separator rawak"]
+        I --> J["Render chip + bina teks salin"]
+        J --> K["Kira & papar entropi"]
     end
 
     subgraph Interact["Interaksi Pengguna"]
-        L[Klik chip perkataan] --> M[SQL: RANDOM() LIMIT 1]
-        M --> N[Ganti perkataan, render semula]
-        O[Klik Salin] --> P[Clipboard API: writeText]
+        L["Klik chip perkataan"] --> M["SQL: RANDOM() LIMIT 1"]
+        M --> N["Ganti perkataan, render semula"]
+        O["Klik Salin"] --> P["Clipboard API: writeText"]
     end
 
     Init --> Generate
