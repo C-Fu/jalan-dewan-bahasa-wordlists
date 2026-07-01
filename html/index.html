@@ -355,7 +355,7 @@ body {
 <script>
 let db = null;
 let totalWords = 1296;
-const SEPARATORS = ['•', '·', '–', '—', '~', '✦', '⁕'];
+const SEPARATORS = ['-', '_', '~', '.', '|', ':', '+'];
 
 function randomSeparator() {
   return SEPARATORS[Math.floor(Math.random() * SEPARATORS.length)];
@@ -405,7 +405,7 @@ function renderPassphrase(words) {
   const html = words.map((w, i) => {
     let parts = '';
     if (i > 0) {
-      parts += '<span class="separator">' + randomSeparator() + '</span>';
+      parts += '<span class="separator">' + currentSeparators[i - 1] + '</span>';
     }
     parts += '<span class="word-chip" data-index="' + i + '">' + w + '</span>';
     return parts;
@@ -414,6 +414,7 @@ function renderPassphrase(words) {
 }
 
 let currentWords = [];
+let currentSeparators = [];
 
 function generate() {
   const countInput = document.getElementById('wordCount');
@@ -429,6 +430,10 @@ function generate() {
   }
 
   currentWords = words;
+  currentSeparators = [];
+  for (let i = 1; i < words.length; i++) {
+    currentSeparators.push(randomSeparator());
+  }
   renderPassphrase(words);
   updateEntropy(words.length);
   clearStatus();
@@ -459,7 +464,10 @@ document.getElementById('copyBtn').addEventListener('click', function() {
     setStatus('Tiada frasa laluan untuk disalin', 'error');
     return;
   }
-  const text = currentWords.join(' ');
+  let text = currentWords[0];
+  for (let i = 1; i < currentWords.length; i++) {
+    text += currentSeparators[i - 1] + currentWords[i];
+  }
   navigator.clipboard.writeText(text).then(() => {
     const btn = document.getElementById('copyBtn');
     btn.textContent = 'Disalin!';
