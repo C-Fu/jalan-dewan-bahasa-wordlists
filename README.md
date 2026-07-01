@@ -2,6 +2,14 @@
 
 ![Senarai Perkataan Jalan Dewan Bahasa](img/Senarai_Perkataan_Jalan_Dewan_Bahasa_roadsign.png)
 
+![Bahasa Melayu](https://img.shields.io/badge/Bahasa_Melayu-DBP-6366F1?style=flat-square)
+![DeepSeek](https://img.shields.io/badge/DeepSeek-v4_Pro-4F6BF0?style=flat-square)
+![Tidy](https://img.shields.io/badge/Tidy-Schlinkert_Prune-10B981?style=flat-square)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
+![sql.js](https://img.shields.io/badge/sql.js-WebAssembly-F7DF1E?style=flat-square&logo=javascript&logoColor=000)
+![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222?style=flat-square&logo=githubpages&logoColor=fff)
+![CC BY-SA 4.0](https://img.shields.io/badge/license-CC_BY--SA_4.0-888?style=flat-square&logo=creativecommons&logoColor=fff)
+
 Senarai perkataan baharu untuk semua keperluan penciptaan frasa laluan anda. Gunakan senarai perkataan ini untuk mencipta frasa laluan yang kukuh dan selamat, sama ada [dengan dadu](https://www.eff.org/dice) atau penjana kata laluan yang terbina dalam sesetengah pengurus kata laluan. Lihat [xkcd: Password Strength](https://xkcd.com/936/) untuk memahami mengapa frasa laluan lebih selamat daripada kata laluan biasa.
 
 * Terdiri daripada perkataan lazim yang ditemui dalam Wikipedia bahasa Melayu dan sumber bahasa Melayu Malaysia
