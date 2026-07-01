@@ -178,17 +178,17 @@ Mengira dan memaparkan jumlah entropi frasa laluan berdasarkan teorem maklumat S
 ```mermaid
 flowchart TD
     subgraph Warna["Palet Warna"]
-        P1[Utama: #6366F1 Indigo]:::primary
-        P2[Teks Utama: #FFFFFF]:::text
-        P3[Teks Kedua: #A3A3A3]:::text2
-        P4[Kad: #101015]:::surface
+        P1["Utama: #6366F1 Indigo"]:::primary
+        P2["Teks Utama: #FFFFFF"]:::text
+        P3["Teks Kedua: #A3A3A3"]:::text2
+        P4["Kad: #101015"]:::surface
     end
 
     subgraph Komponen["Komponen UI"]
-        C1[Shell Gradien<br/>1px padding<br/>16px radius]:::shell
-        C2[Kad Kaca<br/>backdrop-filter blur<br/>15px radius]:::glass
-        C3[Chip Perkataan<br/>rgba(99,102,241,0.1)<br/>klik untuk ganti]:::chip
-        C4[Butang Utama<br/>#FFFFFF bg<br/>#000000 teks]:::btn
+        C1["Shell Gradien\n1px padding\n16px radius"]:::shell
+        C2["Kad Kaca\nbackdrop-filter blur\n15px radius"]:::glass
+        C3["Chip Perkataan\nrgba(99,102,241,0.1)\nklik untuk ganti"]:::chip
+        C4["Butang Utama\n#FFFFFF bg\n#000000 teks"]:::btn
     end
 
     Warna --> Komponen
@@ -197,9 +197,9 @@ flowchart TD
     classDef text fill:#fff,color:#000
     classDef text2 fill:#a3a3a3,color:#000
     classDef surface fill:#101015,color:#fff
-    classDef shell fill:linear-gradient(135deg,rgba(99,102,241,0.3),transparent),color:#fff
-    classDef glass fill:rgba(16,16,21,0.85),color:#fff,stroke:rgba(255,255,255,0.05)
-    classDef chip fill:rgba(99,102,241,0.1),color:#fff,stroke:#6366F1
+    classDef shell fill:#6366F1,color:#fff
+    classDef glass fill:#101015,color:#fff,stroke:#ccc
+    classDef chip fill:#6366F1,color:#fff,stroke:#6366F1
     classDef btn fill:#fff,color:#000
 ```
 
