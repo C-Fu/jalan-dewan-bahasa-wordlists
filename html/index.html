@@ -24,7 +24,7 @@ body {
   border-radius: 16px;
   background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(255,255,255,0.05), transparent);
   width: 100%;
-  max-width: 560px;
+  max-width: 640px;
 }
 
 .card {
@@ -38,28 +38,52 @@ body {
 
 .header {
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
+}
+
+.header .site-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6366F1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
 }
 
 .header h1 {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 600;
   letter-spacing: -0.0114em;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
-.header p {
+.header .tagline {
   font-size: 14px;
   color: #a3a3a3;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 1.5;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.generator-section {
+  margin-bottom: 24px;
+}
+
+.generator-section .section-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #6366F1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
 }
 
 .controls {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   flex-wrap: wrap;
 }
 
@@ -112,12 +136,21 @@ body {
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 12px;
   padding: 20px;
-  min-height: 80px;
+  min-height: 64px;
   margin-bottom: 16px;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  align-content: center;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+.separator {
+  color: #6366F1;
+  font-size: 16px;
+  opacity: 0.6;
+  user-select: none;
+  padding: 0 2px;
 }
 
 .word-chip {
@@ -143,7 +176,7 @@ body {
   font-size: 14px;
   width: 100%;
   text-align: center;
-  padding: 10px 0;
+  padding: 6px 0;
 }
 
 .actions {
@@ -181,6 +214,8 @@ body {
   justify-content: space-between;
   font-size: 13px;
   color: #555;
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
 .info span {
@@ -197,6 +232,42 @@ body {
 
 .error {
   color: #ef4444;
+}
+
+/* Explanation section */
+.explanation {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 24px;
+  margin-top: 8px;
+}
+
+.explanation h3 {
+  font-size: 13px;
+  font-weight: 500;
+  color: #6366F1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.explanation p {
+  font-size: 13px;
+  color: #a3a3a3;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.explanation p:last-child {
+  margin-bottom: 0;
+}
+
+.explanation a {
+  color: #818CF8;
+  text-decoration: none;
+}
+
+.explanation a:hover {
+  text-decoration: underline;
 }
 
 .loading {
@@ -218,6 +289,15 @@ body {
 }
 
 @keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 500px) {
+  .card { padding: 20px; }
+  .header h1 { font-size: 22px; }
+  .passphrase-area { padding: 14px; }
+  .btn-primary { margin-left: 0; width: 100%; }
+  .controls { flex-direction: column; align-items: stretch; }
+  .controls input { width: 100%; }
+}
 </style>
 </head>
 <body>
@@ -225,8 +305,9 @@ body {
 <div class="gradient-shell">
 <div class="card">
   <div class="header">
+    <div class="site-title">Jalan Dewan Bahasa</div>
     <h1>Penjana Frasa Laluan</h1>
-    <p>Gunakan pangkalan data perkataan Jalan Dewan Bahasa untuk mencipta frasa laluan yang selamat.</p>
+    <p class="tagline">Cipta frasa laluan yang kukuh dan selamat menggunakan perkataan Bahasa Melayu yang telah dibuktikan boleh dinyahkod secara unik.</p>
   </div>
 
   <div id="loading" class="loading">
@@ -235,23 +316,35 @@ body {
   </div>
 
   <div id="app" style="display:none">
-    <div class="controls">
-      <label for="wordCount">Bilangan patah perkataan:</label>
-      <input type="number" id="wordCount" value="6" min="3" max="12">
+    <div class="generator-section">
+      <div class="section-title">Penjana</div>
+      <div class="controls">
+        <label for="wordCount">Bilangan patah perkataan:</label>
+        <input type="number" id="wordCount" value="3" min="3" max="12">
+      </div>
+
+      <div class="passphrase-area" id="passphraseArea">
+        <div class="placeholder">Klik Jana untuk mencipta frasa laluan</div>
+      </div>
+
+      <div class="actions">
+        <button class="btn-primary" id="generateBtn">Jana Frasa Laluan</button>
+        <button class="btn-secondary" id="copyBtn">Salin</button>
+      </div>
+
+      <div class="info">
+        <span id="entropyDisplay">Entropi: — bit</span>
+        <span id="wordlistInfo">Senarai Kecil QWERTY (1,296 patah perkataan)</span>
+      </div>
     </div>
 
-    <div class="passphrase-area" id="passphraseArea">
-      <div class="placeholder">Klik Jana untuk mencipta frasa laluan</div>
-    </div>
-
-    <div class="actions">
-      <button class="btn-primary" id="generateBtn">Jana Frasa Laluan</button>
-      <button class="btn-secondary" id="copyBtn">Salin</button>
-    </div>
-
-    <div class="info">
-      <span id="entropyDisplay">Entropi: — bit</span>
-      <span id="wordlistInfo">Senarai Kecil QWERTY (1,296 patah perkataan)</span>
+    <div class="explanation">
+      <h3>Bagaimana Ini Berfungsi</h3>
+      <p>Setiap frasa laluan dihasilkan dengan memilih perkataan secara rawak daripada <strong>Senarai Kecil QWERTY Jalan Dewan Bahasa</strong> — senarai 1,296 patah perkataan Bahasa Melayu Standard (ejaan DBP) yang diterjemahkan daripada <a href="https://github.com/sts10/orchard-street-wordlists" target="_blank">Orchard Street Wordlists</a> bahasa Inggeris menggunakan DeepSeek v4 Pro.</p>
+      <p>Perkataan-perkataan ini telah melalui <strong>pemangkasan Schlinkert</strong> (algoritma tamak berdasarkan <a href="https://en.wikipedia.org/wiki/Sardinas%E2%80%93Patterson_algorithm" target="_blank">siri Sardinas–Patterson</a>) untuk memastikan setiap frasa laluan hanya boleh dihuraikan dengan <em>satu cara sahaja</em> — walaupun tanpa pembatas antara perkataan. Ini penting untuk bahasa Melayu yang bersifat aglutinatif, di mana perkataan seperti <em>makan</em> boleh menjadi awalan kepada <em>makanan</em>, <em>pemakan</em>, <em>memakan</em>, dan lain-lain.</p>
+      <p>Senarai juga telah ditapis untuk menyingkirkan <strong>perkataan lucah</strong> (33 entri dalam senarai tolak) dan menjalani <strong>audit ejaan DBP</strong> untuk memastikan tiada ejaan Indonesia (tiada <em>-itas</em>, <em>karena</em>, <em>universitas</em>, dll.).</p>
+      <p>Halaman ini menggunakan <strong>sql.js</strong> (<a href="https://sql.js.org/" target="_blank">WebAssembly SQLite</a>) yang memuatkan pangkalan data terus dalam pelayar anda — tiada data dihantar ke pelayan. Setiap perkataan boleh diklik untuk digantikan dengan perkataan rawak yang lain.</p>
+      <p><strong>Entropi:</strong> Setiap perkataan daripada senarai ini memberikan 10.340 bit entropi. Frasa laluan 6 patah perkataan memberikan ~62.0 bit entropi — cukup kukuh untuk kebanyakan kegunaan.</p>
     </div>
   </div>
 
@@ -262,11 +355,15 @@ body {
 <script>
 let db = null;
 let totalWords = 1296;
+const SEPARATORS = ['•', '·', '–', '—', '~', '✦', '⁕'];
+
+function randomSeparator() {
+  return SEPARATORS[Math.floor(Math.random() * SEPARATORS.length)];
+}
 
 async function init() {
   const loading = document.getElementById('loading');
   const app = document.getElementById('app');
-  const statusMsg = document.getElementById('statusMsg');
 
   try {
     const SQL = await initSqlJs({
@@ -305,9 +402,15 @@ function renderPassphrase(words) {
     area.innerHTML = '<div class="placeholder">Klik Jana untuk mencipta frasa laluan</div>';
     return;
   }
-  area.innerHTML = words.map((w, i) =>
-    '<span class="word-chip" data-index="' + i + '">' + w + '</span>'
-  ).join('');
+  const html = words.map((w, i) => {
+    let parts = '';
+    if (i > 0) {
+      parts += '<span class="separator">' + randomSeparator() + '</span>';
+    }
+    parts += '<span class="word-chip" data-index="' + i + '">' + w + '</span>';
+    return parts;
+  }).join('');
+  area.innerHTML = html;
 }
 
 let currentWords = [];
