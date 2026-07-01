@@ -339,12 +339,13 @@ body {
     </div>
 
     <div class="explanation">
-      <h3>Bagaimana Ini Berfungsi</h3>
+      <h3>Bagaimana Laman Web Ini Berfungsi</h3>
       <p>Setiap frasa laluan dihasilkan dengan memilih perkataan secara rawak daripada <strong>Senarai Kecil QWERTY Jalan Dewan Bahasa</strong> — senarai 1,296 patah perkataan Bahasa Melayu Standard (ejaan DBP) yang diterjemahkan daripada <a href="https://github.com/sts10/orchard-street-wordlists" target="_blank">Orchard Street Wordlists</a> bahasa Inggeris menggunakan DeepSeek v4 Pro.</p>
       <p>Perkataan-perkataan ini telah melalui <strong>pemangkasan Schlinkert</strong> (algoritma tamak berdasarkan <a href="https://en.wikipedia.org/wiki/Sardinas%E2%80%93Patterson_algorithm" target="_blank">siri Sardinas–Patterson</a>) untuk memastikan setiap frasa laluan hanya boleh dihuraikan dengan <em>satu cara sahaja</em> — walaupun tanpa pembatas antara perkataan. Ini penting untuk bahasa Melayu yang bersifat aglutinatif, di mana perkataan seperti <em>makan</em> boleh menjadi awalan kepada <em>makanan</em>, <em>pemakan</em>, <em>memakan</em>, dan lain-lain.</p>
       <p>Senarai juga telah ditapis untuk menyingkirkan <strong>perkataan lucah</strong> (33 entri dalam senarai tolak) dan menjalani <strong>audit ejaan DBP</strong> untuk memastikan tiada ejaan Indonesia (tiada <em>-itas</em>, <em>karena</em>, <em>universitas</em>, dll.).</p>
       <p>Halaman ini menggunakan <strong>sql.js</strong> (<a href="https://sql.js.org/" target="_blank">WebAssembly SQLite</a>) yang memuatkan pangkalan data terus dalam pelayar anda — tiada data dihantar ke pelayan. Setiap perkataan boleh diklik untuk digantikan dengan perkataan rawak yang lain.</p>
-      <p><strong>Entropi:</strong> Setiap perkataan daripada senarai ini memberikan 10.340 bit entropi. Frasa laluan 6 patah perkataan memberikan ~62.0 bit entropi — cukup kukuh untuk kebanyakan kegunaan.</p>
+      <p><strong>Entropi:</strong> Setiap perkataan daripada senarai ini memberikan 10.340 bit entropi. Frasa laluan 6 patah perkataan memberikan ~62.0 bit entropi — cukup kukuh untuk kebanyakan kegunaan. Lihat <a href="https://xkcd.com/936/" target="_blank">xkcd: Password Strength</a> untuk memahami mengapa frasa laluan lebih selamat daripada kata laluan biasa.</p>
+      <p style="margin-top:14px;font-size:12px;color:#555">Kod sumber: <a href="https://github.com/C-Fu/jalan-dewan-bahasa-wordlists" target="_blank">github.com/C-Fu/jalan-dewan-bahasa-wordlists</a> — dilesenkan di bawah CC BY-SA 4.0.</p>
     </div>
   </div>
 
