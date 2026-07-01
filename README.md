@@ -9,6 +9,14 @@ Senarai perkataan baharu untuk semua keperluan penciptaan frasa laluan anda. Gun
 
 NOTA: Senarai ini disunting dari semasa ke semasa. Jika anda mahukan salinan statik yang tidak berubah bagi mana-mana senarai perkataan, sila muat turun senarai tersebut sebagaimana adanya sekarang, muat turun tag atau keluaran terkini, atau fork repositori ini pada bila-bila masa. Lihat maklumat pelesenan di bawah.
 
+## Penjana Frasa Laluan Dalam Talian
+
+![Tangkapan skrin Penjana Frasa Laluan](img/screenshot.png)
+
+Gunakan [Penjana Frasa Laluan Jalan Dewan Bahasa](https://C-Fu.github.io/jalan-dewan-bahasa-wordlists/html/index.html) — penjana dalam pelayar yang memuatkan pangkalan data SQLite secara langsung menggunakan sql.js (WebAssembly), tanpa pelayan atau pemasangan.
+
+Anda juga boleh menggunakan [StrongPhrase.net](https://strongphrase.net/#/more) untuk menjana frasa laluan daripada Senarai Besar dan Senarai QWERTY. [Kod sumber tersedia di GitLab](https://gitlab.com/strongphrase/StrongPhrase.net).
+
 ## Cara Senarai Ini Dihasilkan
 
 Setiap senarai perkataan dalam projek ini melalui saluran paip (pipeline) yang sama untuk memastikan kualiti, kebolehnilaian unik, dan kesesuaian untuk penciptaan frasa laluan.
@@ -273,12 +281,6 @@ Untuk maklumat lanjut tentang senarai kecil ini dan kes-kes penggunaannya, lihat
 ## Pangkalan Data SQLite
 
 Versi pangkalan data SQLite bagi semua senarai perkataan tersedia dalam direktori `db/`. Fail-fail ini boleh digunakan oleh aplikasi yang memerlukan carian perkataan yang lebih pantas atau integrasi pangkalan data.
-
-## Penjana Frasa Laluan Dalam Talian
-
-Gunakan [Penjana Frasa Laluan Jalan Dewan Bahasa](https://C-Fu.github.io/jalan-dewan-bahasa-wordlists/html/index.html) — penjana dalam pelayar yang memuatkan pangkalan data SQLite secara langsung menggunakan sql.js (WebAssembly), tanpa pelayan atau pemasangan.
-
-Anda juga boleh menggunakan [StrongPhrase.net](https://strongphrase.net/#/more) untuk menjana frasa laluan daripada Senarai Besar dan Senarai QWERTY. [Kod sumber tersedia di GitLab](https://gitlab.com/strongphrase/StrongPhrase.net).
 
 ## Soalan Lazim
 
