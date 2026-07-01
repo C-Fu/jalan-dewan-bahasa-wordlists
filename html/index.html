@@ -394,7 +394,7 @@ function getWords(n) {
   if (!db) return [];
   const result = db.exec("SELECT word FROM words ORDER BY RANDOM() LIMIT " + n);
   if (result.length === 0) return [];
-  return result[0].values.map(row => row[0]);
+  return result[0].values.map(row => row[0][0].toUpperCase() + row[0].slice(1));
 }
 
 function renderPassphrase(words) {
@@ -449,7 +449,8 @@ function replaceWord(index) {
   if (!db || currentWords.length === 0) return;
   const result = db.exec("SELECT word FROM words ORDER BY RANDOM() LIMIT 1");
   if (result.length === 0) return;
-  const newWord = result[0].values[0][0];
+  let newWord = result[0].values[0][0];
+  newWord = newWord[0].toUpperCase() + newWord.slice(1);
   currentWords[index] = newWord;
   currentPassphraseText = currentWords[0];
   for (let i = 1; i < currentWords.length; i++) {
