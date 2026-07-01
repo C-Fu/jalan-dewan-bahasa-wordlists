@@ -1,4 +1,4 @@
-# Senarai Perkataan Jalan Dewan Bahasa
+# Senarai Perkataan Frasa Laluan Jalan Dewan Bahasa
 
 ![Senarai Perkataan Jalan Dewan Bahasa](img/Senarai_Perkataan_Jalan_Dewan_Bahasa_roadsign.png)
 
