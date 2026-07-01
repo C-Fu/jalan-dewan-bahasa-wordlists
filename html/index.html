@@ -415,6 +415,7 @@ function renderPassphrase(words) {
 
 let currentWords = [];
 let currentSeparators = [];
+let currentPassphraseText = '';
 
 function generate() {
   const countInput = document.getElementById('wordCount');
@@ -434,6 +435,10 @@ function generate() {
   for (let i = 1; i < words.length; i++) {
     currentSeparators.push(randomSeparator());
   }
+  currentPassphraseText = words[0];
+  for (let i = 1; i < words.length; i++) {
+    currentPassphraseText += currentSeparators[i - 1] + words[i];
+  }
   renderPassphrase(words);
   updateEntropy(words.length);
   clearStatus();
@@ -445,6 +450,10 @@ function replaceWord(index) {
   if (result.length === 0) return;
   const newWord = result[0].values[0][0];
   currentWords[index] = newWord;
+  currentPassphraseText = currentWords[0];
+  for (let i = 1; i < currentWords.length; i++) {
+    currentPassphraseText += currentSeparators[i - 1] + currentWords[i];
+  }
   renderPassphrase(currentWords);
   updateEntropy(currentWords.length);
 }
@@ -460,15 +469,11 @@ document.getElementById('passphraseArea').addEventListener('click', function(e) 
 document.getElementById('generateBtn').addEventListener('click', generate);
 
 document.getElementById('copyBtn').addEventListener('click', function() {
-  if (currentWords.length === 0) {
+  if (!currentPassphraseText) {
     setStatus('Tiada frasa laluan untuk disalin', 'error');
     return;
   }
-  let text = currentWords[0];
-  for (let i = 1; i < currentWords.length; i++) {
-    text += currentSeparators[i - 1] + currentWords[i];
-  }
-  navigator.clipboard.writeText(text).then(() => {
+  navigator.clipboard.writeText(currentPassphraseText).then(() => {
     const btn = document.getElementById('copyBtn');
     btn.textContent = 'Disalin!';
     btn.classList.add('active');
